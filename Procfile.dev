@@ -1,0 +1,2 @@
+api: env RUBY_DEBUG_OPEN=true savvy-tasks-backend/bin/rails server
+frontend: yarn --cwd savvy-tasks-frontend run start
