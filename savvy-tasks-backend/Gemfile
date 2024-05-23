@@ -17,13 +17,14 @@ gem "graphql"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
-group :development, :test do]
+group :development, :test do
   gem "factory_bot_rails"
   gem "rspec-rails", '~> 6.1.0'
   gem "debug", platforms: %i[ mri windows ]
 end
 
 group :development do
-  gem "standardrb"
+  gem "standard"
   gem "web-console"
 end
+gem "graphiql-rails", group: :development
