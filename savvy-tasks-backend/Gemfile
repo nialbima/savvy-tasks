@@ -14,13 +14,13 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "graphql"
 
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
 group :development, :test do
   gem "factory_bot_rails"
-  gem "rspec-rails", '~> 6.1.0'
-  gem "debug", platforms: %i[ mri windows ]
+  gem "rspec-rails", "~> 6.1.0"
+  gem "debug", platforms: %i[mri windows]
 end
 
 group :development do

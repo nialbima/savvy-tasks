@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "tasks/edit", type: :view do
   let(:task) {
-    Task.create!()
+    Task.create!
   }
 
   before(:each) do
