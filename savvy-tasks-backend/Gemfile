@@ -20,12 +20,17 @@ gem "bootsnap", require: false
 group :development, :test do
   gem "factory_bot_rails"
   gem "ffaker"
-  gem "rspec-rails", "~> 6.1.0"
+  gem "rspec-rails"
   gem "debug", platforms: %i[mri windows]
 end
 
 group :development do
   gem "standard"
   gem "web-console"
+  gem "graphiql-rails"
 end
-gem "graphiql-rails", group: :development
+
+group :test do
+  gem "simplecov", require: false
+  gem "simplecov-lcov", require: false
+end

@@ -35,3 +35,14 @@
 ```!ruby
 
 ```
+
+## Research Notes
+
+- https://graphql-ruby.org/schema/object_identification.html
+
+  - seems like we don't ever use integer IDs in GraphQL? that seems important here.
+  - i think it means we're going to need to add some boilerplate to transform UUIDs into relational IDs?
+
+    - https://github.com/rails/globalid
+
+  - new column for tasks
