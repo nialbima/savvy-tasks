@@ -10,7 +10,11 @@ module Mutations
 
     def resolve(id:)
       task = ::Task.find(id)
-      raise GraphQL::ExecutionError.new "Error deleting task", extensions: task.errors.to_hash unless task.destroy!
+      task.destroy!
+
+      if task.persisted?
+        raise execution_error("Error deleting task", task)
+      end
 
       {task: task}
     end

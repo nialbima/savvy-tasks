@@ -11,7 +11,9 @@ module Mutations
 
     def resolve(id:, task_input:)
       task = ::Task.find(id)
-      raise GraphQL::ExecutionError.new "Error updating task", extensions: task.errors.to_hash unless task.update(**task_input)
+      unless task.update(**task_input)
+        raise GraphQL::ExecutionError.new"Error updating task", extensions: task.errors.to_hash
+      end
 
       {task: task}
     end

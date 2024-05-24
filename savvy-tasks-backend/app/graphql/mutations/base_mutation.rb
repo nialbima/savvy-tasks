@@ -6,5 +6,9 @@ module Mutations
     field_class Types::BaseField
     input_object_class Types::BaseInputObject
     object_class Types::BaseObject
+
+    def execution_error(message, record)
+      GraphQL::ExecutionError.new message, extensions: record.errors.to_hash
+    end
   end
 end
