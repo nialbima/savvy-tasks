@@ -26,8 +26,11 @@ end
 
 group :development do
   gem "standard"
+  gem "standard-rails"
+  gem "standard-performance"
   gem "web-console"
   gem "graphiql-rails"
+  gem 'meta_request'
 end
 
 group :test do

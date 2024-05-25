@@ -1,0 +1,9 @@
+# Since it's a new app, this is the pattern I'd want to set up before anything else. If you need text,
+# it goes in YML so that there's some remote hope of localization in the future. If you don't set it up,
+# it's kind of impossible to fix it.
+en:
+  activemodel:
+    errors:
+      models:
+        task:
+  tasks:

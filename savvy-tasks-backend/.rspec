@@ -1,3 +1,4 @@
 --order rand
 --color
+--exclude-pattern "spec/support/**/*_spec.rb"
 --require spec_helper

@@ -1,0 +1,12 @@
+{
+  "github.copilot.inlineSuggest.enable": false,
+  "disable-copilot-comment-completions.textMateRules": [
+    {
+      "type": "string",
+      "value": "comment",
+      "mode": "includes"
+    }
+  ]
+
+  "disable-copilot-comment-completions.contentRules": []
+}

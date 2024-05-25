@@ -14,3 +14,10 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
+
+Rails.autoloaders.each do |autoloader|
+  # This lets us use the correct capitalization for GraphQL whenever we want to use it in a module name.
+  autoloader.inflector.inflect(
+    "graphql" => "GraphQL"
+  )
+end

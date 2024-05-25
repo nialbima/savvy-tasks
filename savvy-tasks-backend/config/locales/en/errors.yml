@@ -1,0 +1,4 @@
+en:
+  errors:
+    messages:
+      not_nil: "must be defined"
