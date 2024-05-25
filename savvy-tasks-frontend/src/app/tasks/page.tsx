@@ -6,6 +6,7 @@ async function canIGetData() {
   return "";
 }
 
-export default function Page() {
-  return <h1>Hello, Tasks Page! {canIGetData()} </h1>;
+export default function IndexPage() {
+  return <Table />;
+  // <h1>Hello, Tasks Page! {canIGetData()} </h1>;
 }
