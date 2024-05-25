@@ -24,6 +24,20 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :task, resolver: Resolvers::TaskResolver
+    field :task, TaskType do
+      argument :id, ID
+    end
+
+    def task(id:)
+      context.schema.object_from_id(id, context)
+    end
+
+    field :tasks, [TaskType] do
+      argument :ids, [ID]
+    end
+
+    def tasks(ids:)
+      ids.map { |id| context.schema.object_from_id(id, context) }
+    end
   end
 end

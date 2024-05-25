@@ -11,9 +11,10 @@ RSpec.describe Task, type: :model do
   # coworkers has to be carefully managed.
   specify :aggregate_failures do
     described_class = create :task, :randomized
-    # If this fails, nothing's going to work, so having it fail makes it simpler to learn how the class behaves.
+    # If this fails, nothing's going to work, so having it fail in a predictable place makes it simpler to learn how
+    # the class behaves.
     expect(described_class).to validate_presence_of :title
-    expect(described_class).to validate_presence_of :completed
+    expect(described_class).to validate_inclusion_of(:completed).in_array([true, false]).with_message("must be defined")
   end
 
   describe "#validations" do

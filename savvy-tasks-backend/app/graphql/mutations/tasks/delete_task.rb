@@ -10,7 +10,7 @@ module Mutations
       argument :id, ID, required: true
 
       def resolve(id:)
-        task = ::GidManager.get_object(global_id: id)
+        task = GidManager.get_object(global_id: id)
         task.discard!
 
         if task.undiscarded?

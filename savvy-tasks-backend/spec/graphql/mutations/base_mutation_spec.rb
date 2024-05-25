@@ -10,7 +10,7 @@ RSpec.describe Mutations::BaseMutation, type: :graphql do
 
   describe "#execution_error" do
     it "returns a GraphQl execution error with a standardized format" do
-      task = build :task, title: nil
+      task = build :task, title: nil, completed: nil
       task.valid?
 
       instance = described_class.new(**empty_graphql_args)
@@ -20,7 +20,7 @@ RSpec.describe Mutations::BaseMutation, type: :graphql do
       expect(error.to_h).to eq(
         {
           "message" => "YOU DID IT WRONG",
-          "extensions" => {"title" => ["can't be blank"], "completed" => ["can't be blank"]}
+          "extensions" => {"title" => ["can't be blank"], "completed" => ["must be defined"]}
         }
       )
     end

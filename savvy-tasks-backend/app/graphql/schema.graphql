@@ -90,7 +90,8 @@ interface Node {
 }
 
 type Query {
-  task(id: ID!): Task!
+  task(id: ID!): Task
+  tasks(ids: [ID!]!): [Task!]
 }
 
 type Task implements Node {
