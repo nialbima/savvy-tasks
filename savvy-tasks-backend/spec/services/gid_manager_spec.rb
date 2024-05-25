@@ -24,5 +24,4 @@ RSpec.describe GidManager do
     gid = task.to_gid_param
     expect(described_class.get_object(global_id: gid)).to eq task
   end
-
 end

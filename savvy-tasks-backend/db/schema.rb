@@ -18,10 +18,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_184418) do
     t.string "title", null: false
     t.text "description"
     t.boolean "completed", default: false, null: false
-    t.time "due_date"
+    t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time "discarded_at"
+    t.datetime "discarded_at"
     t.index ["discarded_at"], name: "index_tasks_on_discarded_at"
   end
 

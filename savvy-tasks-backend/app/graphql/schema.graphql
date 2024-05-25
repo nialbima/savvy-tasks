@@ -39,7 +39,9 @@ type DeleteTaskPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  task: Task!
+  discardedAt: ISO8601DateTime
+  id: ID
+  task: Task
 }
 
 """
@@ -118,6 +120,7 @@ type Task implements Node {
     input: DeleteTaskInput!
   ): DeleteTaskPayload
   description: String
+  discardedAt: ISO8601DateTime!
   dueDate: ISO8601DateTime
 
   """
