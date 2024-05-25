@@ -23,10 +23,12 @@ class SavvyTasksBackendSchema < GraphQL::Schema
   end
 
   def self.id_from_object(object, type_definition, query_ctx)
-    object.to_gid_param
+    # NOTE: this probably isn't secure enough, but as long as logins are implemented securely,
+    # it shouldn't be possible to enumerate over the DB and get access to invalid items.
+    GidManager.get_gid(object: object)
   end
 
   def self.object_from_id(global_id, query_ctx)
-    GlobalID.find(global_id)
+    GidManager.get_object(global_id: global_id)
   end
 end

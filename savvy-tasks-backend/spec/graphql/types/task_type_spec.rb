@@ -11,9 +11,8 @@ RSpec.describe Types::TaskType, type: :graphql do
           due_date: 1.day.from_now
 
         with_resolution_context(type: "Task", object: task, context: {}) do |rc|
-          # should be global ID.
           [
-            ["id", task.id],
+            ["id", task.to_gid_param],
             ["title", "BRUSH TEETH"],
             ["description", "Brush your teeth for 2 minutes, it's good for your health"],
             ["completed", false],

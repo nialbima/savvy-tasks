@@ -17,13 +17,13 @@ RSpec.describe Task, type: :model do
   end
 
   describe "#validations" do
-    it "validates title presence"  do
+    it "validates title presence" do
       task = build :task, title: nil
       expect(task.valid?).to eq false
       expect(task.errors.full_messages).to match_array(["Title can't be blank"])
     end
 
-    it "validates non-nil values for completed"  do
+    it "validates non-nil values for completed" do
       task = build :task, completed: nil
       expect(task.valid?).to eq false
       expect(task.errors.full_messages).to match_array(["Completed must be defined"])

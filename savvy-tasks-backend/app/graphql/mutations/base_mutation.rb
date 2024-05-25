@@ -8,7 +8,6 @@ module Mutations
     object_class Types::BaseObject
 
     def execution_error(message, record)
-      binding.break
       GraphQL::ExecutionError.new message, extensions: record.errors.to_hash
     end
   end

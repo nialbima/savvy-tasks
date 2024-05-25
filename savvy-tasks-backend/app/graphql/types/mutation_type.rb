@@ -2,8 +2,9 @@
 
 module Types
   class MutationType < Types::BaseObject
-    field :task_delete, mutation: Mutations::TaskDelete
-    field :task_update, mutation: Mutations::TaskUpdate
-    field :task_create, mutation: Mutations::TaskCreate
+    # NOTE: these should probably have their own folder.
+    field :delete_task, mutation: Mutations::Tasks::DeleteTask
+    field :update_task, mutation: Mutations::Tasks::UpdateTask
+    field :create_task, mutation: Mutations::Tasks::CreateTask
   end
 end

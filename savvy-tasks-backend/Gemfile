@@ -13,6 +13,7 @@ gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "graphql"
+gem "discard", "~> 1.2"
 
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
@@ -30,10 +31,12 @@ group :development do
   gem "standard-performance"
   gem "web-console"
   gem "graphiql-rails"
-  gem 'meta_request'
+  gem "meta_request"
 end
 
 group :test do
+  # I use this for the validation matchers, and leave the rest of it alone.
+  gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "simplecov-lcov", require: false
 end
