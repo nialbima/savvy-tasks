@@ -5,7 +5,7 @@ module Resolvers
     argument :id, ID
 
     def resolve(id:)
-      ::Task.find(id)
+      context.schema.object_from_id(id, context)
     end
   end
 end

@@ -17,7 +17,7 @@ RSpec.describe Types::TaskType, type: :graphql do
             ["title", "BRUSH TEETH"],
             ["description", "Brush your teeth for 2 minutes, it's good for your health"],
             ["completed", false],
-            ["dueDate", (Time.zone.now + 1.day).iso8601],
+            ["dueDate", 1.day.from_now.iso8601],
             # These are raw data and I'm not sure why that might be. Read more.
             ["createdAt", task.created_at.iso8601],
             ["updatedAt", task.updated_at.iso8601]
