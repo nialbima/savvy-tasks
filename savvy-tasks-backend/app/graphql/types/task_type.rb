@@ -15,5 +15,7 @@ module Types
     field :create_task, mutation: Mutations::Tasks::CreateTask
     field :delete_task, mutation: Mutations::Tasks::DeleteTask
     field :update_task, mutation: Mutations::Tasks::UpdateTask
+
+    field :user, UserType, null: true
   end
 end

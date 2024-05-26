@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Macros
   module GraphQL
     # This is a little bit of overkill for this example, but it's a good pattern to follow when you need to encapsulate

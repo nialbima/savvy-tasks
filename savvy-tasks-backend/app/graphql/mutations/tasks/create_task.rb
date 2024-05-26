@@ -10,7 +10,7 @@ module Mutations
       argument :task_input, Types::TaskInputType, required: true
 
       def resolve(task_input:)
-        task = ::Task.new(**task_input)
+        task = ::Task.new(user: context[:current_user], **task_input)
 
         unless task.save
           raise GraphQL::ExecutionError.new "Error creating task", extensions: task.errors.to_hash

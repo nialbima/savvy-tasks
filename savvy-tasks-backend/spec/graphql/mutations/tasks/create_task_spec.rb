@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Mutations::Tasks::CreateTask, type: :request do
   it "creates a task" do
+    _current_user = create :test_user
+
     query_string = <<-GRAPHQL
       mutation {
         createTask(
@@ -19,9 +23,7 @@ RSpec.describe Mutations::Tasks::CreateTask, type: :request do
       }
     GRAPHQL
 
-    expect {
-      post graphql_path, params: {query: query_string}
-    }.to change(Task, :count).by(1)
+    expect { post graphql_path, params: {query: query_string} }.to change(Task, :count).by(1)
 
     task = Task.last
     json_response = JSON.parse(response.body)

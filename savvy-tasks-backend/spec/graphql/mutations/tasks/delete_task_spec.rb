@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
@@ -58,7 +60,7 @@ RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
     GRAPHQL
 
     expected_response = {
-      "data" => { "deleteTask" => nil},
+      "data" => {"deleteTask" => nil},
       "errors" => [
         {
           "extensions" => {},

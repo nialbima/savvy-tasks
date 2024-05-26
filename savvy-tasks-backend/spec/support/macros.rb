@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Macros
   # This is a pattern I worked out for managing macro state when an app gets complex.
   def load_all(rspec_config_object)

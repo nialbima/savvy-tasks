@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :task do
     user
@@ -14,6 +16,10 @@ FactoryBot.define do
     # in the factory.
     trait :randomized do
       title { "Learn #{FFaker::Skill.unique.specialty}" }
+    end
+
+    trait :discarded do
+      discarded_at { Time.zone.now }
     end
   end
 end

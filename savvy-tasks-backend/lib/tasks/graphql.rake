@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As suggested by the GraphQL docs, code is from here: https://rmosolgo.github.io/ruby/graphql/2017/03/16/tracking-schema-changes-with-graphql-ruby
 namespace :graphql do
   task dump_schema: :environment do
