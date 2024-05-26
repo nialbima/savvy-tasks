@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Nav from "./nav";
 import { Inter } from "next/font/google";
+import { ApolloWrapper } from "./apollo-wrapper";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Nav />
+        <ApolloWrapper>{children}</ApolloWrapper>
+      </body>
     </html>
   );
 }

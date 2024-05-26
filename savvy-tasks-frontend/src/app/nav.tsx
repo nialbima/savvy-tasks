@@ -1,18 +1,12 @@
 import Link from "next/link";
 
-export default function TasksLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Nav() {
   return (
     <section>
       <nav>
         <Link href="/tasks">Tasks</Link>
         <Link href="/form">Add A Task</Link>
       </nav>
-
-      {children}
     </section>
   );
 }
