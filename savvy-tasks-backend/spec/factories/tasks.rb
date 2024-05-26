@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :task do
+    user
     title { "A Task" }
     description { "WHAT EVEN IS THIS, MAN, OH GOOD WHAT NOW" }
     # Static dates in tests can cause issues when dealing with scheduled events. Making it dynamic from jump is easier,

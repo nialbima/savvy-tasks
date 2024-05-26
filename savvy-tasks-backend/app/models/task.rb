@@ -5,6 +5,8 @@ class Task < ApplicationRecord
   # reference is preferable for me.
   include Discard::Model
 
+  belongs_to :user
+
   # App-level validations can become really, really complicated. Wrapping shared behaviors with with_options is a decent
   # way of wrangling them when you don't want to write more-complex code for managing validation.
   with_options presence: true do
