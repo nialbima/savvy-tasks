@@ -18,6 +18,9 @@ const GET_USER_TASKS = gql`
           node {
             id
             title
+            description
+            completed
+            dueDate
           }
         }
         pageInfo {

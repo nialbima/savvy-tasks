@@ -1,4 +1,10 @@
 import Row from "./row";
+import Task from "../../shared/interfaces/task.interface";
+
+type Edge = {
+  node: Task;
+  cursor: string;
+};
 
 function Table({ data }: { data: any }) {
   const {
@@ -6,10 +12,9 @@ function Table({ data }: { data: any }) {
       tasks: { edges },
     },
   } = data;
-  console.log(typeof edges[0]);
   return (
     <div>
-      {edges.map((edge: object) => (
+      {edges.map((edge: Edge) => (
         <Row task={edge.node} />
       ))}
     </div>
