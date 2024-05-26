@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
   it "soft-deletes a task" do
+    _current_user = create :test_user
     task = create :task, title: "I'm in danger!"
 
     freeze_time
@@ -43,6 +44,7 @@ RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
   end
 
   it "raises an error when a discarded task is scheduled for soft-deletion" do
+    _current_user = create :test_user
     task = create :task, title: "I'm in danger!"
     freeze_time
 

@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe Mutations::Tasks::CreateTask, type: :request do
   it "updates a task" do
+    _current_user = create :test_user
     task = create :task, title: "What A Good Title"
 
     query_string = <<-GRAPHQL

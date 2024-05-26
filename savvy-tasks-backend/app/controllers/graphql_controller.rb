@@ -12,7 +12,7 @@ class GraphqlController < ApplicationController
     operation_name = params[:operationName]
     # Building out the front-end login architecture is a scope expansion, and I didn't want to do it for this code test.
     # For now, restricting the tasks returned to the front-end to the user that created them is enough.
-    context = {current_user: User.find_by!(email: "test-user@gmail.com")}
+    context = {current_user: User.find_by(email: "test-user@gmail.com")}
 
     result = SavvyTasksBackendSchema.execute(
       query,

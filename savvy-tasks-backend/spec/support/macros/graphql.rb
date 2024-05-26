@@ -10,9 +10,8 @@ module Macros
     def empty_graphql_args
       {object: nil, context: nil, field: nil}
     end
+    def graphql_query_variables(**kwargs)
+      kwargs.transform_keys { |k| k.to_s.camelize(:lower) }
+    end
   end
 end
-
-# RSpec.configure do |config|
-#   config.include(Macros::GraphQL, type: :graphql)
-# end
