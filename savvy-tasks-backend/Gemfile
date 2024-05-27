@@ -16,6 +16,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "graphql"
 gem "discard", "~> 1.2"
+gem "rack-cors"
 
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
