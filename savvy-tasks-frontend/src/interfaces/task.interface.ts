@@ -1,23 +1,23 @@
 import { Timestamp, DueDate } from "./timestamp.interface";
 
 interface TaskInterface {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   completed: boolean;
   dueDate?: DueDate;
-  createdAt: Timestamp;
-  updatedAt: Timestamp;
+  createdAt?: Timestamp;
+  updatedAt?: Timestamp;
 }
 
 class Task implements TaskInterface {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   completed: boolean;
   dueDate?: DueDate;
-  createdAt: Timestamp;
-  updatedAt: Timestamp;
+  createdAt?: Timestamp;
+  updatedAt?: Timestamp;
 
   constructor({
     id,

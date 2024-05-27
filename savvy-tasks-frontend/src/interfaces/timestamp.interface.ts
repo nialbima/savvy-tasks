@@ -14,7 +14,8 @@ export class Timestamp extends Date implements TimestampInterface {
 
 export class DueDate extends Date implements DueDateInterface {
   forDisplay(): string {
-    return this.toLocaleString();
+    this.setUTCHours(0, 0, 0, 0);
+    return this.toISOString();
   }
 
   pastDue(): boolean {

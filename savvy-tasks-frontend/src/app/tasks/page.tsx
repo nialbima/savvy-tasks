@@ -3,12 +3,11 @@ import Table from "../../components/table";
 import GET_USER_TASKS from "@/queries/get-user-tasks";
 
 async function Page() {
-  const id = process.env.STATIC_USER_GID;
+  const id = process.env.NEXT_PUBLIC_STATIC_USER_GID;
   const { data } = await getClient().query({
     query: GET_USER_TASKS,
     variables: { id },
   });
-
   return <Table data={data} />;
 }
 

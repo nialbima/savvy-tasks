@@ -48,22 +48,21 @@
         />
         <label
           class="col-span-9 mb-1"
-          bg-black"
           htmlFor="description"
         >Description</label>
         <textarea
-          class="col-span-9 bg-black p-4 border rounded-md "
-          rows="5"
+          class="col-span-9 bg-black p-4 border rounded-md bg-black border-white border""
+          rows="
+          5"
           columns="30"
-          class="bg-black border-white border name="
-          description"
+          name="description"
         >
         </textarea>
         <button
           class="bg-cyan-500 px-12 py-3 mt-4 mb-2 col-span-9"
           type="submit"
           disabled="{isLoading}"
-        > {isLoading ? "Loading..." : "Save"} </button>
+        >{isLoading ? "Loading..." : "Save"}</button>
       </form>
       <button
         class="bg-green-500 px-12 py-3 mb-2 col-span-9"
@@ -71,7 +70,7 @@
       > Complete! </button>
       <button
         class="bg-red-600 px-12 py-3 mb-2 col-span-9 flex-shrink-0 "
-        onClick="{onComplete}"
+        onClick="{onDelete}"
       > Delete! </button>
     </div>
   </div>

@@ -1,5 +1,5 @@
-import Row from "./table/row";
-import ColumnHeaders from "./table/column-headers";
+import Row from "@/components/table/row";
+import ColumnHeaders from "@/components/table/column-headers";
 import Task from "../interfaces/task.interface";
 
 type Edge = {
