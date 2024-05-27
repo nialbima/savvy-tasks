@@ -1,4 +1,4 @@
-import Task from "../../../shared/interfaces/task.interface";
+import Task from "../../interfaces/task.interface";
 
 function Row({ task }: { task: Task }): React.JSX.Element {
   return (

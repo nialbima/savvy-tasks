@@ -9,8 +9,9 @@ import DELETE_TASK from "@/queries/delete-task";
 
 export default function Page() {
   const id = process.env.STATIC_USER_GID;
-  const { data } = useSuspenseQuery(GET_USER_TASKS, { variables: { id } });
-  return <main>{data.now}</main>;
+  // const { data } = useSuspenseQuery(GET_USER_TASKS, { variables: { id } });
+  // console.log(data);
+  return "oops";
 }
 
 // const [isLoading, setIsLoading] = useState<boolean>(false);

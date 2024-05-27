@@ -1,5 +1,5 @@
 import { getClient } from "../../utils/apollo";
-import Table from "./table";
+import Table from "../../components/table";
 import GET_USER_TASKS from "@/queries/get-user-tasks";
 
 async function Page() {
@@ -8,6 +8,7 @@ async function Page() {
     query: GET_USER_TASKS,
     variables: { id },
   });
+
   return <Table data={data} />;
 }
 

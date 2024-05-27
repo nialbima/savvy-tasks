@@ -1,6 +1,6 @@
 import Row from "./table/row";
 import ColumnHeaders from "./table/column-headers";
-import Task from "../../shared/interfaces/task.interface";
+import Task from "../interfaces/task.interface";
 
 type Edge = {
   node: Task;
@@ -25,7 +25,7 @@ function Table({ data }: { data: any }) {
     <div className={cssClasses}>
       <ColumnHeaders />
       {edges.map((edge: Edge) => (
-        <Row task={edge.node} />
+        <Row task={edge.node} key={edge.node.id} />
       ))}
     </div>
   );
