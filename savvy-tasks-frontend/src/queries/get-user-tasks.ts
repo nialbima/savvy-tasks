@@ -1,9 +1,9 @@
-import { getClient } from "../../utils/apollo";
-import Table from "./table";
 import { gql } from "@apollo/client";
-// definitely doesn't belong here, this is just to check for comms
+
+// This supports pagination in the API, but I'm not implementing that here. Right now, it loads
+// all the tasks into a list in the server, and performance isn't a concern.
 const GET_USER_TASKS = gql`
-  query HydrateUserData(
+  query GetUserTasks(
     $id: ID!
     $startCursor: String
     $endCursor: String
@@ -34,14 +34,4 @@ const GET_USER_TASKS = gql`
   }
 `;
 
-async function IndexPage() {
-  const id = process.env.STATIC_USER_GID;
-  const { data } = await getClient().query({
-    query: GET_USER_TASKS,
-    variables: { id },
-  });
-  console.log(typeof data);
-  return <Table data={data} />; // Use the 'Table' component as a JSX element
-}
-
-export default IndexPage;
+export default GET_USER_TASKS;

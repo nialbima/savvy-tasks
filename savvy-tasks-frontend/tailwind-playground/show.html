@@ -1,0 +1,56 @@
+<!-- See here: https://play.tailwindcss.com/I8xuDALfCk -->
+<div
+  class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-black py-6 sm:py-12"
+>
+  <div
+    class="relative px-6 pb-8 pt-10 text-white shadow-xl ring-1 ring-gray-400 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10"
+  >
+    <div class="sticky top-0 bg-black py-3">
+      <h1 class="pb-2 text-center text-4xl font-black italic tracking-widest subpixel-antialiased">
+        SAVVY TASKS</h1>
+      <nav class="grid grid-cols-2 place-items-stretch gap-4 bg-black py-2">
+        <a
+          class="rounded-sm bg-gray-900 py-1 text-center shadow-xl shadow-stone-500/20 ring-1 ring-gray-400"
+          href="/tasks"
+        >Tasks</a>
+        <a
+          class="rounded-sm bg-gray-900 py-1 text-center shadow-xl shadow-stone-500/20 ring-1 ring-gray-400"
+          href="/form"
+        >Add A Task</a>
+      </nav>
+    </div>
+    <div
+      class="grid-col-9 mx-auto grid max-w-lg content-center justify-items-stretch items-center gap-2 bg-black"
+    >
+      <span
+        class="col-span-3 mb-3 bg-black"
+        htmlFor="title"
+      >Title</span>
+      <p class="col-span-6 mb-3 border border-0 border-b-2 bg-black">Title for the task</p>
+      <span
+        class="col-span-3 mb-3 bg-black"
+        htmlFor="title"
+      >Due Date</span>
+      <p class="col-span-6 mb-3 border border-0 border-b-2 bg-black">June 1st, 2024 9:30 AM</p>
+      <span
+        class="col-span-9 mb-1"
+        bg-black"
+        htmlFor="description"
+      >Description</span>
+      <p class="col-span-9 bg-black p-4 border rounded-md text-white"> This can accept as much text
+        as you like, without any errors or issues. </p>
+      <a
+        class="bg-cyan-500 px-12 py-3 text-center mb-2 col-span-9"
+        href="/form"
+      > Update! </a>
+      <button
+        class="bg-green-500 px-12 py-3 mb-2 col-span-9"
+        onClick="{onComplete}"
+      > Complete! </button>
+      <button
+        class="bg-red-600 px-12 py-3 mb-2 col-span-9 flex-shrink-0 "
+        onClick="{onComplete}"
+      > Delete! </button>
+    </div>
+  </div>
+</div>
