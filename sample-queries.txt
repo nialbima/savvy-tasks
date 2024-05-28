@@ -1,0 +1,82 @@
+query GetUserTasks($gid: ID!, $startCursor: String, $endCursor: String, $pageSize: Int) {
+  user(gid: $gid) {
+    gid
+  	activeTasksCount
+    tasks(first: $pageSize, after: $endCursor, before: $startCursor) {
+      edges {
+        cursor
+        node {
+          gid
+          title
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+    }
+  }
+}
+
+vars: { "gid": "valid-gid-for-user", "pageSize": 2 }
+
+query GetTask($gid: ID!) {
+  task(gid: $gid) {
+    gid
+    title
+    description
+   	dueDate
+    completed
+    discardedAt
+  }
+}
+
+vars: {"gid": "valid-gid-for-task"}
+
+mutation CreateTask($input: CreateTaskInput!) {
+  createTask(input: $input) {
+    task {
+      gid
+      title
+      dueDate
+    }
+  }
+}
+
+vars: {"input": { "taskInput": { "title": "wow new title lol",  "dueDate":  "2024-05-28T18:59:14Z"}} }
+
+mutation DeleteTask($input: DeleteTaskInput!) {
+  deleteTask(input: $input) {
+    task {
+      gid
+			discardedAt
+    }
+  }
+}
+{
+  vars: { "input": { "taskInput": { "gid": "Z2lkOi8vc2F2dnktdGFza3MtYmFja2VuZC9UYXNrLzk5" } } }
+
+  mutation UpdateTask($input: UpdateTaskInput!) {
+  updateTask(input: $input) {
+    task {
+      gid
+      title
+      description
+      completed
+      dueDate
+    }
+  }
+}
+
+vars: {
+  "input": {
+    "taskInput": {
+    	"gid": "Z2lkOi8vc2F2dnktdGFza3MtYmFja2VuZC9UYXNrLzEwMQ",
+      "title": "wow new title lol2",
+      "completed": true,
+      "description": "profound!"
+    }
+  }
+}
