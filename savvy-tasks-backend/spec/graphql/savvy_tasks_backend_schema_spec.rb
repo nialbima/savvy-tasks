@@ -8,4 +8,8 @@ RSpec.describe SavvyTasksBackendSchema, type: :graphql do
     current_definition = SavvyTasksBackendSchema.to_definition
     expect(current_file).to eq(current_definition)
   end
+
+  it "has type introspection disabled" do
+    expect(described_class).to be_disable_type_introspection_entry_point
+  end
 end

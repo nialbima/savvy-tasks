@@ -5,18 +5,12 @@ class SavvyTasksBackendSchema < GraphQL::Schema
   query(Types::QueryType)
   use GraphQL::Dataloader
 
+  disable_type_introspection_entry_point
+
   # Limit the size of incoming queries:
   max_query_string_tokens(5000)
   # Stop validating when it encounters this many errors:
   validate_max_errors(100)
-
-  def self.type_error(err, context)
-    # if err.is_a?(GraphQL::InvalidNullError)
-    #   # report to your bug tracker here
-    #   return nil
-    # end
-    super
-  end
 
   def self.resolve_type(abstract_type, obj, ctx)
     raise(GraphQL::RequiredImplementationMissingError)

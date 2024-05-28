@@ -2,7 +2,9 @@
 
 module Types
   class TaskType < Types::BaseObject
-    implements GraphQL::Types::Relay::Node
+    delegate :gid, to: :object
+
+    field :gid, ID, description: "GID of the object."
 
     field :title, String, null: false
     field :description, String

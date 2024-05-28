@@ -2,7 +2,9 @@
 
 module Types
   class UserType < Types::BaseObject
-    implements GraphQL::Types::Relay::Node
+    delegate :gid, to: :object
+
+    field :gid, ID, description: "GID of the object."
 
     field :username, String
     field :email, String

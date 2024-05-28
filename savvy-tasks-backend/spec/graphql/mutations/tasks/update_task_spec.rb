@@ -11,7 +11,7 @@ RSpec.describe Mutations::Tasks::CreateTask, type: :request do
       mutation UpdateTask($input: UpdateTaskInput!) {
         updateTask(input: $input) {
           task {
-            id
+            gid
             title
           }
         }
@@ -23,7 +23,7 @@ RSpec.describe Mutations::Tasks::CreateTask, type: :request do
       variables: {
         input: {
           taskInput: {
-            id: task.to_gid_param,
+            gid: task.to_gid_param,
             title: "Another Good Title"
           }
         }
@@ -41,7 +41,7 @@ RSpec.describe Mutations::Tasks::CreateTask, type: :request do
       "data" => {
         "updateTask" => {
           "task" => {
-            "id" => task.to_gid_param,
+            "gid" => task.to_gid_param,
             "title" => "Another Good Title"
           }
         }

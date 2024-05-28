@@ -7,25 +7,25 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
     freeze_time
 
     query_string = <<-GRAPHQL
-      query getTask($id: ID!){
-        task(id: $id) {
+      query getTask($gid: ID!){
+        task(gid: $gid) {
           title
           description
           dueDate
-          id
+          gid
         }
       }
     GRAPHQL
 
     task = create :task, title: "FIND ME"
     task_id = described_class.id_from_object(task, Types::TaskType, {})
-    result = described_class.execute(query_string, variables: {id: task_id})
+    result = described_class.execute(query_string, variables: {gid: task_id})
 
     task_result = result["data"]["task"]
     expect(task_result).to eq({
       "description" => "WHAT EVEN IS THIS, MAN, OH GOOD WHAT NOW",
       "title" => "FIND ME",
-      "id" => task.gid,
+      "gid" => task.gid,
       "dueDate" => 4.days.from_now.iso8601
     })
   end
@@ -35,15 +35,15 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
     freeze_time
 
     query_string = <<-GRAPHQL
-      query HydrateUserData($id: ID!, $startCursor: String, $endCursor: String, $pageSize: Int) {
-        user(id: $id) {
-          id
+      query HydrateUserData($gid: ID!, $startCursor: String, $endCursor: String, $pageSize: Int) {
+        user(gid: $gid) {
+          gid
           activeTasksCount
           tasks(first: $pageSize, after: $endCursor, before: $startCursor) {
             edges {
               cursor
               node {
-                id
+                gid
                 title
                 description
                 dueDate
@@ -67,7 +67,7 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
     expected_response_with_pagination = {
       "user" => a_hash_including(
         "activeTasksCount" => 2,
-        "id" => current_user.gid,
+        "gid" => current_user.gid,
         "tasks" => a_hash_including(
           "edges" => match_array(
             [
@@ -76,7 +76,7 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
                 "node" => a_hash_including(
                   "description" => "WHAT EVEN IS THIS, MAN, OH GOOD WHAT NOW",
                   "title" => "FIND ME",
-                  "id" => task.gid,
+                  "gid" => task.gid,
                   "dueDate" => 4.days.from_now.iso8601,
                   "completed" => false
                 )
@@ -85,7 +85,7 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
                 "node" => a_hash_including(
                   "description" => "WHAT EVEN IS THIS, MAN, OH GOOD WHAT NOW",
                   "title" => "FIND ME TOO",
-                  "id" => another_task.gid,
+                  "gid" => another_task.gid,
                   "dueDate" => 4.days.from_now.iso8601,
                   "completed" => false
                 )
@@ -101,7 +101,7 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
         )
       )
     }
-    result = described_class.execute(query_string, variables: {id: current_user.gid})
+    result = described_class.execute(query_string, variables: {gid: current_user.gid})
 
     task_results = result["data"]
     expect(task_results).to include(expected_response_with_pagination)
@@ -116,15 +116,15 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
     end
 
     query_string = <<-GRAPHQL
-      query HydrateUserData($id: ID!, $startCursor: String, $endCursor: String, $pageSize: Int) {
-        user(id: $id) {
-          id
+      query HydrateUserData($gid: ID!, $startCursor: String, $endCursor: String, $pageSize: Int) {
+        user(gid: $gid) {
+          gid
           activeTasksCount
           tasks(first: $pageSize, after: $endCursor, before: $startCursor) {
             edges {
               cursor
               node {
-                id
+                gid
               }
             }
             pageInfo {
@@ -140,7 +140,7 @@ RSpec.describe SavvyTasksBackendSchema, "tasks", type: :graphql do
 
     page_size = 2
 
-    variables = graphql_query_variables(id: current_user.gid, page_size: page_size)
+    variables = graphql_query_variables(gid: current_user.gid, page_size: page_size)
 
     first_page_result = described_class.execute(query_string, variables: variables)
     first_page_info = first_page_result.dig("data", "user", "tasks", "pageInfo")

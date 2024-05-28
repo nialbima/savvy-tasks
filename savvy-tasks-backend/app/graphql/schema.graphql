@@ -28,7 +28,7 @@ input DeleteTaskInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  gid: ID!
 }
 
 """
@@ -40,7 +40,7 @@ type DeleteTaskPayload {
   """
   clientMutationId: String
   discardedAt: ISO8601DateTime
-  id: ID
+  gid: ID
   task: Task
 }
 
@@ -82,16 +82,6 @@ type Mutation {
 }
 
 """
-An object with an ID.
-"""
-interface Node {
-  """
-  ID of the object.
-  """
-  id: ID!
-}
-
-"""
 Information about pagination in a connection.
 """
 type PageInfo {
@@ -117,11 +107,11 @@ type PageInfo {
 }
 
 type Query {
-  task(id: ID!): Task
-  user(id: ID!): User
+  task(gid: ID!): Task
+  user(gid: ID!): User
 }
 
-type Task implements Node {
+type Task {
   completed: Boolean!
 
   """
@@ -149,9 +139,9 @@ type Task implements Node {
   dueDate: ISO8601DateTime
 
   """
-  ID of the object.
+  GID of the object.
   """
-  id: ID!
+  gid: ID
   title: String!
 
   """
@@ -207,7 +197,7 @@ input TaskInput {
   description: String
   discardedAt: ISO8601DateTime
   dueDate: ISO8601DateTime
-  id: ID
+  gid: String
   title: String
 }
 
@@ -233,14 +223,14 @@ type UpdateTaskPayload {
   task: Task!
 }
 
-type User implements Node {
+type User {
   activeTasksCount: Int!
   email: String
 
   """
-  ID of the object.
+  GID of the object.
   """
-  id: ID!
+  gid: ID
   tasks(
     """
     Returns the elements in the list that come after the specified cursor.

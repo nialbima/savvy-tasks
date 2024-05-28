@@ -13,20 +13,20 @@ RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
       mutation DeleteTask($input: DeleteTaskInput!) {
         deleteTask(input: $input) {
           task {
-            id
+            gid
             discardedAt
           }
         }
       }
     GRAPHQL
 
-    update_params = {query: query_string, variables: {input: {id: task.to_gid_param}}}
+    update_params = {query: query_string, variables: {input: {gid: task.to_gid_param}}}
 
     expected_response = {
       "data" => {
         "deleteTask" => {
           "task" => {
-            "id" => task.to_gid_param,
+            "gid" => task.to_gid_param,
             "discardedAt" => Time.zone.now.iso8601
           }
         }
@@ -54,7 +54,7 @@ RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
       mutation DeleteTask($input: DeleteTaskInput!) {
         deleteTask(input: $input) {
           task {
-            id
+            gid
             discardedAt
           }
         }
@@ -73,7 +73,7 @@ RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
       ]
     }
 
-    update_params = {query: query_string, variables: {input: {id: task.to_gid_param}}}
+    update_params = {query: query_string, variables: {input: {gid: task.to_gid_param}}}
     post graphql_path, params: update_params
 
     task = Task.last

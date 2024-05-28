@@ -14,7 +14,7 @@ RSpec.describe Types::TaskType, type: :graphql do
 
         with_resolution_context(type: "Task", object: task, context: {}) do |rc|
           [
-            ["id", task.to_gid_param],
+            ["gid", task.to_gid_param],
             ["title", "BRUSH TEETH"],
             ["description", "Brush your teeth for 2 minutes, it's good for your health"],
             ["completed", false],

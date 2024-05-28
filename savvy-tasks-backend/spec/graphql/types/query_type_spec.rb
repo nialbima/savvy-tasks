@@ -16,7 +16,7 @@ RSpec.describe Types::QueryType, type: :request do
           }
         ) {
           task {
-            id
+            gid
             title
           }
         }
@@ -32,7 +32,7 @@ RSpec.describe Types::QueryType, type: :request do
       "data" => {
         "createTask" => {
           "task" => {
-            "id" => task.to_gid_param,
+            "gid" => task.to_gid_param,
             "title" => "What A Good Title"
           }
         }
