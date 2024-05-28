@@ -4,19 +4,19 @@ import { gql } from "@apollo/client";
 // all the tasks into a list in the server, and performance isn't a concern.
 const GET_USER_TASKS = gql`
   query GetUserTasks(
-    $id: ID!
+    $gid: ID!
     $startCursor: String
     $endCursor: String
     $pageSize: Int
   ) {
-    user(id: $id) {
-      id
+    user(gid: $gid) {
+      gid
       activeTasksCount
       tasks(first: $pageSize, after: $endCursor, before: $startCursor) {
         edges {
           cursor
           node {
-            id
+            gid
             title
             description
             completed

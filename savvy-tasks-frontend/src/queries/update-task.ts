@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import { TaskI } from "@/interfaces/task.interface";
+
 export interface UpdateTaskI {
   updateTask: UpdateTaskResponseI;
 }
@@ -12,7 +13,7 @@ const UPDATE_TASK = gql`
   mutation UpdateTask($input: UpdateTaskInput!) {
     updateTask(input: $input) {
       task {
-        id
+        gid
         title
         description
         completed

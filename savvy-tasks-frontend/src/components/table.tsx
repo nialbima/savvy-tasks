@@ -1,3 +1,5 @@
+"use client";
+
 import Row from "@/components/table/row";
 import ColumnHeaders from "@/components/table/column-headers";
 import { Task } from "../interfaces/task.interface";
@@ -25,7 +27,7 @@ function Table({ data }: { data: any }): React.JSX.Element {
     <div className={cssClasses}>
       <ColumnHeaders />
       {edges.map((edge: Edge) => (
-        <Row task={new Task(edge.node)} key={edge.node.id} />
+        <Row task={new Task(edge.node)} key={edge.node.gid} />
       ))}
     </div>
   );

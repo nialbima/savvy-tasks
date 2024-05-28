@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  DEFAULT_TYPE_NAME="Task"
   # This is a new gem for me, but soft-deletion is REALLY common and I really like this approach. I've used modules attempting
   # to use default_scope or method overwrites to handle this, and they're always clunky. Discard steps around that by
   # just defining another method, instead. You still need to use a scope to look up the records, but the explicit
@@ -22,5 +23,9 @@ class Task < ApplicationRecord
 
   def gid
     GidManager.get_gid(object: self)
+  end
+
+  def self.__typename
+    DEFAULT_TYPE_NAME
   end
 end

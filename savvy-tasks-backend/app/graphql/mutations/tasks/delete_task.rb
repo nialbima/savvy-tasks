@@ -5,14 +5,12 @@ module Mutations
     class DeleteTask < BaseMutation
       description "Deletes a task by ID"
 
-      field :gid, ID
-      field :discarded_at, GraphQL::Types::ISO8601DateTime
-      field :task, Types::TaskType
+      field :task, Types::TaskType, null: false
 
-      argument :gid, ID, required: true
+      argument :task_input, Types::TaskInputType, required: true
 
-      def resolve(gid:)
-        task = ::GidManager.get_object(global_id: gid)
+      def resolve(task_input:)
+        task = ::GidManager.get_object(global_id: task_input.gid)
 
         begin
           task.discard!

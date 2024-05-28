@@ -31,15 +31,15 @@ const SaveButton: React.FC<SaveButtonProps> = (props) => {
   const { task, isDirty } = props;
 
   const queryConstant = () => {
-    return task.id ? UPDATE_TASK : CREATE_TASK;
+    return task.gid ? UPDATE_TASK : CREATE_TASK;
   };
 
   const [createOrUpdateTask, { data, loading, error }] =
     useMutation<CreateOrUpdateMutation>(queryConstant(), {
       variables: { input: { taskInput: task } },
       onCompleted: (data) => {
-        if (!task.id) {
-          task.id = data.createTask.task.id;
+        if (!task.gid) {
+          task.gid = data.createTask.task.gid;
         }
       },
     });

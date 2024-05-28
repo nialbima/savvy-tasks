@@ -1,40 +1,27 @@
 import { Timestamp, DueDate } from "./timestamp.interface";
 
 export interface TaskI {
-  id?: string;
+  gid?: string;
   title: string;
   description: string;
   completed: boolean;
   dueDate?: DueDate;
-  createdAt?: Timestamp;
-  updatedAt?: Timestamp;
 }
 
 export class Task implements TaskI {
-  id?: string;
+  gid?: string;
   title: string;
   description: string;
   completed: boolean;
   dueDate?: DueDate;
-  createdAt?: Timestamp;
-  updatedAt?: Timestamp;
+  discardedAt?: Timestamp;
 
-  constructor({
-    id,
-    title,
-    description,
-    completed,
-    dueDate,
-    createdAt,
-    updatedAt,
-  }: TaskI) {
-    this.id = id;
+  constructor({ gid, title, description, completed, dueDate }: TaskI) {
+    this.gid = gid;
     this.title = title;
     this.description = description;
     this.completed = completed;
-    this.dueDate = dueDate;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
+    this.dueDate = dueDate ? new DueDate(dueDate) : undefined;
   }
 }
 

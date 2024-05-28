@@ -1,19 +1,18 @@
 "use client";
 
 import TaskForm from "@/components/task-form";
-import { TaskData } from "@/interfaces/task.interface";
+import { TaskData, Task } from "@/interfaces/task.interface";
 import { useSuspenseQuery } from "@apollo/client";
 import GET_TASK from "@/queries/get-task";
 
-function Page({ params }: { params: { id: string } }) {
+function Page({ params }: { params: { gid: string } }) {
   const { data } = useSuspenseQuery(GET_TASK, {
-    variables: { id: params.id },
+    variables: { gid: params.gid },
   });
 
-  console.log(data);
   const taskData: TaskData = data;
-  console.log(taskData.task);
-  return <TaskForm task={taskData.task} />;
+  const task: Task = taskData.task;
+  return <TaskForm task={task} />;
 }
 
 export default Page;

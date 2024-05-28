@@ -3,13 +3,13 @@ import type { TypedDocumentNode } from "@apollo/client";
 import { TaskData } from "@/interfaces/task.interface";
 
 interface Variables {
-  id: string;
+  gid: string;
 }
 
 const GET_TASK: TypedDocumentNode<TaskData, Variables> = gql`
-  query GetTask($id: ID!) {
-    task(id: $id) {
-      id
+  query GetTask($gid: ID!) {
+    task(gid: $gid) {
+      gid
       title
       description
       dueDate

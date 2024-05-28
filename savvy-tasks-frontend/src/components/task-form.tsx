@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent } from "react";
 import { TaskFormProps } from "@/interfaces/task.interface";
+import { DueDate } from "@/interfaces/timestamp.interface";
 import DeleteButton from "./delete-button";
 import SaveButton from "./save-button";
 import CompleteButton from "./complete-button";
@@ -9,6 +10,7 @@ import CompleteButton from "./complete-button";
 const TaskForm: React.FC<TaskFormProps> = (props) => {
   const [isDirty, setIsDirty] = useState(false);
   const [task, setTask] = useState(props.task);
+  const dueDate = props.task.dueDate ? new DueDate(props.task.dueDate) : null;
 
   const handleChange = (e: FormEvent) => {
     e.preventDefault();
@@ -38,8 +40,7 @@ const TaskForm: React.FC<TaskFormProps> = (props) => {
           className="col-span-6 mb-3 text-white dark border border-0 border-b-2 dark:bg-gray-700"
           type="datetime-local"
           name="dueDate"
-          // value={task.dueDate?.forDisplay()}
-          value={""}
+          defaultValue={dueDate?.forFormControl()}
           onChange={handleChange}
         />
         <label className="col-span-9 bg-black mb-2" htmlFor="description">

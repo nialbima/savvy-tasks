@@ -10,8 +10,6 @@ module Types
     field :description, String
     field :completed, Boolean, null: false
     field :due_date, GraphQL::Types::ISO8601DateTime
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :discarded_at, GraphQL::Types::ISO8601DateTime
 
     field :create_task, mutation: Mutations::Tasks::CreateTask
