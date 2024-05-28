@@ -1,2 +1,0 @@
-api: env RUBY_DEBUG_OPEN=true PORT=3000 savvy-tasks-backend/bin/rails server
-frontend: env PORT=3001 yarn --cwd savvy-tasks-frontend npm dev

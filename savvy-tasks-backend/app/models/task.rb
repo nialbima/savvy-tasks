@@ -16,7 +16,7 @@ class Task < ApplicationRecord
     validates :title
   end
 
-  # Somewhat redundant, but this validation allows for better error handling in this case.
+  # Somewhat redundant, but this validation allows for better error handling in this specific case.
   # If we wound up doing this repeatedly, I'd extract it into a custom validator so that all the weirdness is
   # in one place.
   validates :completed, inclusion: {in: [true, false], message: :not_nil}, allow_nil: false

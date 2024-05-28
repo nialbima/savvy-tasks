@@ -1,7 +1,0 @@
----
-BUNDLE_GEMFILE: savvy-tasks-backend/Gemfile
-BUNDLE_BIN: savvy-tasks-backend/bin
-BUNDLE_CACHE_ALL_PLATFORMS: "true"
-BUNDLE_CACHE_ALL: "true"
-BUNDLE_CACHE_PATH: "vendor/cache"
-BUNDLE_JOBS: "8"

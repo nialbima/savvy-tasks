@@ -4,7 +4,7 @@ module Types
   class TaskInputType < Types::BaseInputObject
     # Given more time, I think it'd be preferable to split these inputs off for each CRUD operation.
     with_options required: false do
-      # These are removed in some resolvers, when they're present in the payload.
+      # These are removed from the attributes passed to SQL when they're present in the payload.
       argument :__typename, String
       argument :gid, String
 

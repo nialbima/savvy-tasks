@@ -35,7 +35,6 @@ RSpec.describe Mutations::Tasks::DeleteTask, type: :request do
 
     post graphql_path, params: update_params
 
-    debugger
     task = Task.last
     json_response = JSON.parse(response.body)
 

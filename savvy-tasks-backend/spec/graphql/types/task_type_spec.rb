@@ -18,7 +18,7 @@ RSpec.describe Types::TaskType, type: :graphql do
             ["title", "BRUSH TEETH"],
             ["description", "Brush your teeth for 2 minutes, it's good for your health"],
             ["completed", false],
-            ["dueDate", 1.day.from_now.iso8601],
+            ["dueDate", 1.day.from_now.iso8601]
           ].each do |field_name, field_value|
             expect(rc.run_graphql_field(field_name)).to eq(field_value)
           end

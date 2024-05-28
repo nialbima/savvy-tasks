@@ -4,7 +4,7 @@ module Types
   class UserType < Types::BaseObject
     delegate :gid, to: :object
 
-    field :gid, ID, description: "GID of the object."
+    field :gid, ID, description: "GlobalID of the object."
 
     field :username, String
     field :email, String

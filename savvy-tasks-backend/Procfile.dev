@@ -1,3 +1,0 @@
-api: env RUBY_DEBUG_OPEN=true savvy-tasks-backend/bin/rails server
-frontend: npm run start --path savvy-tasks-frontend
-css: yarn build:css --watch
