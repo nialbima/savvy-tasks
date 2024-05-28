@@ -9,7 +9,7 @@ export interface UpdateTaskResponseI {
 }
 
 const UPDATE_TASK = gql`
-  mutation UpdateTask($input: UpdateTaskInput!, $id:) {
+  mutation UpdateTask($input: UpdateTaskInput!) {
     updateTask(input: $input) {
       task {
         id

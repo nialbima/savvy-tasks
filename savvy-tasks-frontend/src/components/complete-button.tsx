@@ -19,15 +19,19 @@ interface CreateTaskResponseI {
 const CompleteButton: React.FC<CompleteButtonProps> = (props) => {
   const { task } = props;
   const { completed } = task;
-  const [isCompleted, setIsCompleted] = useState(!!completed);
+  const [isCompleted, setIsCompleted] = useState(completed);
+
+  const cleanTask: Task = (task: Task) => Task {
+    task.delete(__typename);
+    return task;
+  };
 
   const [updateTask, { data, loading, error }] = useMutation<CreateTaskI>(
     UPDATE_TASK,
     {
-      variables: { input: { task } },
+      variables: { input: { taskInput: cleanTask(task) } },
       onCompleted: (data) => {
         props.setTask(data.createTask.task);
-        console.log(data);
       },
     }
   );
@@ -40,7 +44,9 @@ const CompleteButton: React.FC<CompleteButtonProps> = (props) => {
       className={`grid px-6 col-span-9 py-3 flex-shrink-0`}
       onSubmit={(e) => {
         e.preventDefault();
+        console.log(isCompleted);
         setIsCompleted(!isCompleted);
+        console.log(isCompleted);
         updateTask();
       }}
     >

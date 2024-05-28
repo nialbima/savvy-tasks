@@ -1,7 +1,7 @@
 "use client";
 
 import TaskForm from "@/components/task-form";
-import { Task, TaskData } from "@/interfaces/task.interface";
+import { TaskData } from "@/interfaces/task.interface";
 import { useSuspenseQuery } from "@apollo/client";
 import GET_TASK from "@/queries/get-task";
 
