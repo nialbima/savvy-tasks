@@ -17,6 +17,7 @@ gem "turbo-rails"
 gem "graphql"
 gem "discard", "~> 1.2"
 gem "rack-cors"
+gem "devise", "~> 4.9"
 
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
@@ -43,5 +44,3 @@ group :test do
   gem "simplecov", require: false
   gem "simplecov-lcov", require: false
 end
-
-gem "devise", "~> 4.9"
