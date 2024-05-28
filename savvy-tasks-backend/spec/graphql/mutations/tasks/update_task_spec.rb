@@ -22,8 +22,8 @@ RSpec.describe Mutations::Tasks::CreateTask, type: :request do
       query: query_string,
       variables: {
         input: {
-          id: task.to_gid_param,
           taskInput: {
+            id: task.to_gid_param,
             title: "Another Good Title"
           }
         }

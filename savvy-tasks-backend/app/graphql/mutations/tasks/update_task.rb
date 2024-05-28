@@ -7,11 +7,10 @@ module Mutations
 
       field :task, Types::TaskType, null: false
 
-      argument :id, ID, required: true
       argument :task_input, Types::TaskInputType, required: true
 
-      def resolve(id:, task_input:)
-        task = ::GidManager.get_object(global_id: id)
+      def resolve(task_input:)
+        task = ::GidManager.get_object(global_id: task_input.id)
 
         unless task.update(**task_input)
           raise GraphQL::ExecutionError.new "Error updating task", extensions: task.errors.to_hash

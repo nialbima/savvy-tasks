@@ -145,7 +145,7 @@ type Task implements Node {
     input: DeleteTaskInput!
   ): DeleteTaskPayload
   description: String
-  discardedAt: ISO8601DateTime!
+  discardedAt: ISO8601DateTime
   dueDate: ISO8601DateTime
 
   """
@@ -204,12 +204,11 @@ type TaskEdge {
 
 input TaskInput {
   completed: Boolean
-  createdAt: ISO8601DateTime
   description: String
+  discardedAt: ISO8601DateTime
   dueDate: ISO8601DateTime
   id: ID
   title: String
-  updatedAt: ISO8601DateTime
 }
 
 """
@@ -220,7 +219,6 @@ input UpdateTaskInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
   taskInput: TaskInput!
 }
 
