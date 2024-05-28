@@ -28,7 +28,7 @@ input DeleteTaskInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  gid: ID!
+  taskInput: TaskInput!
 }
 
 """
@@ -39,9 +39,7 @@ type DeleteTaskPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  discardedAt: ISO8601DateTime
-  gid: ID
-  task: Task
+  task: Task!
 }
 
 """
@@ -123,7 +121,6 @@ type Task {
     """
     input: CreateTaskInput!
   ): CreateTaskPayload
-  createdAt: ISO8601DateTime!
 
   """
   Deletes a task by ID
@@ -153,7 +150,6 @@ type Task {
     """
     input: UpdateTaskInput!
   ): UpdateTaskPayload
-  updatedAt: ISO8601DateTime!
   user: User
 }
 
@@ -193,6 +189,7 @@ type TaskEdge {
 }
 
 input TaskInput {
+  __typename: String
   completed: Boolean
   description: String
   discardedAt: ISO8601DateTime

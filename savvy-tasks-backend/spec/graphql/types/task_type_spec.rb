@@ -19,9 +19,6 @@ RSpec.describe Types::TaskType, type: :graphql do
             ["description", "Brush your teeth for 2 minutes, it's good for your health"],
             ["completed", false],
             ["dueDate", 1.day.from_now.iso8601],
-            # These are raw data and I'm not sure why that might be. Read more.
-            ["createdAt", task.created_at.iso8601],
-            ["updatedAt", task.updated_at.iso8601]
           ].each do |field_name, field_value|
             expect(rc.run_graphql_field(field_name)).to eq(field_value)
           end
