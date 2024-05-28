@@ -2,7 +2,6 @@
 
 module Resolvers
   class TasksResolver < BaseResolver
-
     def resolve(ids:)
       # extract IDs, pass to AR.
     end

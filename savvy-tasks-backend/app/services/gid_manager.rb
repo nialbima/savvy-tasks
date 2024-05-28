@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module GidManager
-
   module_function
 
   def get_gid(object:)
