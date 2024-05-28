@@ -1,6 +1,6 @@
 import { Timestamp, DueDate } from "./timestamp.interface";
 
-interface TaskInterface {
+export interface TaskI {
   id?: string;
   title: string;
   description: string;
@@ -10,7 +10,7 @@ interface TaskInterface {
   updatedAt?: Timestamp;
 }
 
-class Task implements TaskInterface {
+export class Task implements TaskI {
   id?: string;
   title: string;
   description: string;
@@ -27,7 +27,7 @@ class Task implements TaskInterface {
     dueDate,
     createdAt,
     updatedAt,
-  }: TaskInterface) {
+  }: TaskI) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -38,4 +38,10 @@ class Task implements TaskInterface {
   }
 }
 
-export default Task;
+export interface TaskData {
+  task: Task;
+}
+
+export interface TaskFormProps {
+  task: Task;
+}

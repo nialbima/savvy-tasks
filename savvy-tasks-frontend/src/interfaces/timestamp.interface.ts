@@ -1,18 +1,18 @@
-interface TimestampInterface extends Date {
+interface TimestampI extends Date {
   forDisplay(): string;
 }
 
-interface DueDateInterface extends Timestamp {
+interface DueDateI extends Timestamp {
   pastDue(): boolean;
 }
 
-export class Timestamp extends Date implements TimestampInterface {
+export class Timestamp extends Date implements TimestampI {
   forDisplay(): string {
     return this.toLocaleString();
   }
 }
 
-export class DueDate extends Date implements DueDateInterface {
+export class DueDate extends Date implements DueDateI {
   forDisplay(): string {
     this.setUTCHours(0, 0, 0, 0);
     return this.toISOString();

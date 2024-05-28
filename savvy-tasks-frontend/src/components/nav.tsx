@@ -15,7 +15,7 @@ export default function Nav() {
         </Link>
         <Link
           className="py-1 text-center ring-1 rounded-sm ring-gray-400 shadow-xl  shadow-stone-500/20 bg-gray-900"
-          href="/form"
+          href="/create"
         >
           Add A Task
         </Link>
